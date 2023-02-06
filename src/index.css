@@ -7,12 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 62.5%;
   position: relative;
-  height: 100vh;
   background-color: #e9ecef;
   box-sizing: border-box;
 }
 
-.alert{
+.alert {
   background-color: rgba(255, 98, 0, 0.345);
   padding: 0.5rem;
   width: 80%;
@@ -30,11 +29,8 @@ body {
   background-color: white;
   width: 80%;
   border-radius: 5px;
-  position: absolute;
-  top: 30%;
-  left: 50%;
+  margin: 2rem auto;
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1), -2px -2px 15px rgba(0, 0, 0, 0.1);
-  transform: translate(-50%, -50%);
   text-align: center;
   padding: 2rem;
 }
@@ -62,7 +58,7 @@ input {
   border: none;
   background-color: orange;
   font-size: 1.2rem;
-  padding: 0  1rem;
+  padding: 0 1rem;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   cursor: pointer;
@@ -83,6 +79,7 @@ input {
   border-radius: 5px;
   background-color: #eef0f36f;
   margin-left: 50%;
+  margin-bottom: 1rem;
   transform: translateX(-50%);
   transition: all 0.2s ease-in-out;
 }
