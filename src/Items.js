@@ -2,13 +2,13 @@ import React from "react";
 import {BiEdit} from 'react-icons/bi'
 import {AiFillDelete} from 'react-icons/ai'
 
-export default function Item(props){
+export default function Item({id, title, deleteItem, editItem}){
     return (
         <div className="item">
-            <p>{props.bud}</p>
+            <p>{title}</p>
             <div className="icon-con">
-                <span className="edit" onClick={()=>props.edit(props.index)}><BiEdit/></span>
-                <span className="delete" onClick={()=>props.delete(props.index)}><AiFillDelete/></span>
+                <span className="edit" onClick={()=>editItem(id)}><BiEdit/></span>
+                <span className="delete" onClick={()=>deleteItem(id)}><AiFillDelete/></span>
             </div>
         </div>
     )
