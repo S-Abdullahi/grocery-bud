@@ -2,8 +2,17 @@ import React, { useState, useEffect } from "react";
 import Item from "./Items";
 import Alert from "./Alert";
 
+function getLocalStorage(){
+    let list = localStorage.getItem('list');
+    if(list){
+        return JSON.parse(list)
+    } else{
+        return []
+    }
+}
+
 export default function App() {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalStorage());
   const [item, setItem] = useState("");
   const [clear, setClear] = useState(false);
   const [edit, setEdit] = useState(false);
@@ -17,6 +26,10 @@ export default function App() {
 
     return () => clearTimeout(timeout);
   }, [list]);
+
+  useEffect(()=>{
+    localStorage.setItem('list', JSON.stringify(list))
+  },[list])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -66,13 +79,12 @@ export default function App() {
     const editBud = list.find((el, index) => el.id === ind);
     setItem(editBud.title);
     setEdit(true);
-    setEdit(ind);
+    setEditID(ind);
   }
 
   function alertFun(show = "false", msg = "", type = "") {
     setAlert({ show: show, msg: msg, type: type });
   }
-
   return (
     <div className="card">
       {alert.show && <Alert {...alert} />}
